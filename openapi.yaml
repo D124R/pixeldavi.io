@@ -1,0 +1,380 @@
+openapi: 3.0.3
+info:
+  title: ANPEX Project Management API (MVP)
+  version: 0.1.0
+  description: API mínima para o MVP de gerenciamento de projetos, tarefas, matching, assets e chat.
+servers:
+  - url: http://localhost:3000/api
+security:
+  - bearerAuth: []
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  schemas:
+    User:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        email:
+          type: string
+        role:
+          type: string
+        title:
+          type: string
+        skills:
+          type: array
+          items:
+            type: object
+            properties:
+              name: { type: string }
+              level: { type: string }
+        availabilityHoursPerWeek:
+          type: integer
+    Project:
+      type: object
+      properties:
+        id: { type: string }
+        name: { type: string }
+        description: { type: string }
+        leaderId: { type: string }
+        teamIds:
+          type: array
+          items: { type: string }
+        status: { type: string }
+        startDate: { type: string, format: date }
+        dueDate: { type: string, format: date }
+    Task:
+      type: object
+      properties:
+        id: { type: string }
+        title: { type: string }
+        description: { type: string }
+        projectId: { type: string }
+        column: { type: string }
+        assigneeId: { type: string }
+        reporterId: { type: string }
+        estimateHours: { type: number }
+        spentHours: { type: number }
+        dueDate: { type: string, format: date }
+    Asset:
+      type: object
+      properties:
+        id: { type: string }
+        name: { type: string }
+        type: { type: string }
+        fileUrl: { type: string }
+    TokenResponse:
+      type: object
+      properties:
+        accessToken: { type: string }
+        refreshToken: { type: string }
+
+paths:
+  /auth/login:
+    post:
+      summary: Login
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email: { type: string }
+                password: { type: string }
+      responses:
+        '200':
+          description: tokens
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TokenResponse'
+
+  /auth/refresh:
+    post:
+      summary: Refresh token
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                refreshToken: { type: string }
+      responses:
+        '200':
+          description: new token
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TokenResponse'
+
+  /users:
+    get:
+      summary: List users
+      parameters:
+        - in: query
+          name: skill
+          schema: { type: string }
+        - in: query
+          name: availability
+          schema: { type: integer }
+      responses:
+        '200':
+          description: list
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/User'
+    post:
+      summary: Create user (admin)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+      responses:
+        '201': { description: created }
+
+  /users/{id}:
+    get:
+      summary: Get user
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: string }
+      responses:
+        '200':
+          description: user
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+
+  /projects:
+    get:
+      summary: List projects
+      responses:
+        '200':
+          description: projects
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Project'
+    post:
+      summary: Create project
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Project'
+      responses:
+        '201': { description: created }
+
+  /projects/{projectId}/tasks:
+    get:
+      summary: List tasks for project
+      parameters:
+        - in: path
+          name: projectId
+          required: true
+          schema: { type: string }
+      responses:
+        '200':
+          description: tasks
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Task'
+    post:
+      summary: Create task
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Task'
+      responses:
+        '201': { description: created }
+
+  /tasks/{id}:
+    put:
+      summary: Update task
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: string }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Task'
+      responses:
+        '200': { description: ok }
+
+  /matching/suggest:
+    post:
+      summary: Suggest members for a role
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                projectId: { type: string }
+                role: { type: string }
+                limit: { type: integer }
+      responses:
+        '200':
+          description: suggestions
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    userId: { type: string }
+                    score: { type: number }
+                    reasons:
+                      type: array
+                      items: { type: string }
+
+  /approvals:
+    post:
+      summary: Create approval request
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                resourceType: { type: string }
+                resourceId: { type: string }
+                approverRole: { type: string }
+      responses:
+        '201': { description: created }
+
+  /assets:
+    get:
+      summary: List assets
+      responses:
+        '200':
+          description: assets
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Asset'
+    post:
+      summary: Upload asset
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file: { type: string, format: binary }
+                name: { type: string }
+                type: { type: string }
+      responses:
+        '201': { description: uploaded }
+
+  /conversations:
+    get:
+      summary: List conversations
+      responses:
+        '200':
+          description: conversations
+    post:
+      summary: Create conversation
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                type: { type: string }
+                participantIds:
+                  type: array
+                  items: { type: string }
+      responses:
+        '201': { description: created }
+
+  /conversations/{id}/messages:
+    get:
+      summary: Get messages
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: messages }
+    post:
+      summary: Post message
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                text: { type: string }
+      responses:
+        '201': { description: created }
+
+  /calendar:
+    get:
+      summary: Get calendar events
+      parameters:
+        - in: query
+          name: start
+          schema: { type: string, format: date }
+        - in: query
+          name: end
+          schema: { type: string, format: date }
+      responses:
+        '200': { description: events }
+
+  /notifications:
+    get:
+      summary: List notifications for user
+      responses:
+        '200': { description: notifications }
+
+  /dashboard/summary:
+    get:
+      summary: Dashboard summary
+      responses:
+        '200':
+          description: summary
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  activeProjects: { type: integer }
+                  pendingTasks: { type: integer }
+                  membersOnline: { type: integer }
+                  upcomingDeadlines: { type: array, items: { type: string } }

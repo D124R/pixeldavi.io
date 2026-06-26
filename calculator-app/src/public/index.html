@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TypeScript Calculator</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <main class="calculator">
+    <h1>TypeScript Calculator</h1>
+    <div class="display-box">
+      <input id="expression" type="text" readonly aria-label="Calculator display" />
+    </div>
+    <div class="button-grid" role="group" aria-label="Calculator buttons">
+      <button type="button" data-value="7">7</button>
+      <button type="button" data-value="8">8</button>
+      <button type="button" data-value="9">9</button>
+      <button type="button" data-value="/">÷</button>
+
+      <button type="button" data-value="4">4</button>
+      <button type="button" data-value="5">5</button>
+      <button type="button" data-value="6">6</button>
+      <button type="button" data-value="*">×</button>
+
+      <button type="button" data-value="1">1</button>
+      <button type="button" data-value="2">2</button>
+      <button type="button" data-value="3">3</button>
+      <button type="button" data-value="-">−</button>
+
+      <button type="button" data-value="0">0</button>
+      <button type="button" data-value=".">.</button>
+      <button type="button" id="clear">C</button>
+      <button type="button" data-value="+">+</button>
+
+      <button type="button" data-value="(">(</button>
+      <button type="button" data-value=")">)</button>
+      <button type="button" id="calculate" class="span-two">=</button>
+    </div>
+    <p id="message" class="message" aria-live="polite"></p>
+  </main>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
