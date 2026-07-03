@@ -1,76 +1,55 @@
-# ANPEX — Projeto (workspace)
 
-Wireframes, especificação e esqueleto do painel de gerenciamento de projetos (MVP).
 
-## Estrutura principal
-- `app/` — Next.js app (página principal do site). 
-- `app/wireframes/` — componentes React esqueleto para as telas MVP (Dashboard, Kanban, Projetos, Equipe, Assets, Chat).
-- `calculator-app/` — projeto TypeScript separado (exemplo/auxiliar).
+# pixeldavi.io — Portfólio de Davit (Pixeldavi)
 
-## Requisitos
-- Node.js 18+ e npm (ou pnpm/yarn).
+Olá — eu sou Davit (conhecido como Pixeldavi). Este repositório contém meu site de portfólio: uma landing page em design escuro com projetos de pixel art, jogos e programação criativa.
 
-## Rodando localmente (Next.js)
-No terminal (PowerShell) na raiz do repositório:
+## O que você encontra aqui
 
-```powershell
-npm install
-npm run dev
-```
+- Home com apresentação e identidade visual
+- Seção "Sobre mim" com resumo e habilidades
+- Lista de projetos com links e botões "Ver Projeto →" que levam ao contato
+- Formulário de contato para mensagens diretas
+- Suporte a português e inglês (i18n básico)
 
-Abra no navegador: http://localhost:3000
-- Página de demonstração dos wireframes: http://localhost:3000/wireframes
+## Tecnologias
 
-## `calculator-app` (servidor Node/TypeScript)
-Entrar na pasta e usar o script dev:
+- HTML, CSS, JavaScript (vanilla)
+- Deploy: Vercel
+
+## Rodar localmente
+
+1. Abra a pasta `portfolio`.
+2. Para visualização rápida, abra `index.html` no navegador; ou rode um servidor local:
 
 ```powershell
-cd calculator-app
-npm install
-npm run dev
+cd portfolio
+python -m http.server 8000
+# ou, se preferir Node: npx http-server -p 8000
 ```
 
-## Notas rápidas
-- Os wireframes são esqueleto UI — componentes em `app/wireframes/components/`.
-- Próximos passos sugeridos: criar mocks/API, modelagem de dados (ERD) e integração WebSocket.
+Abra `http://localhost:8000`.
 
-Se quiser, eu:
-- gero um `OpenAPI` básico para a API do MVP;
-- crio mocks JSON para popular o dashboard;
-- adiciono scripts de dev/containers (Docker).
-# ANPEX Next.js Site
+## Produção
 
-Portal ANPEX convertido em layout React/Next.js.
+Site publicado em: https://pixeldavi-portfolio.vercel.app
 
-## Como executar
+Se quiser adicionar um domínio customizado, configure o alias no painel do Vercel.
 
-1. Instale dependências:
-   ```bash
-   npm install
-   ```
-2. Inicie o servidor de desenvolvimento:
-   ```bash
-   npm run dev
-   ```
-3. Abra o site em:
-   ```
-   http://localhost:3000
-   ```
+## Contato & contratação
 
-## O que foi incluído
+- E-mail: davitrevisol611@gmail.com
+- Caso queira contratar ou colaborar, envie uma mensagem com o assunto e eu respondo rapidamente.
 
-- Next.js com `app` router
-- Página principal convertida em React
-- Estilo global em `app/globals.css`
-- Interação de mapa e envio de formulário
-- Layout profissional e responsivo para ANPEX
+## Notas para desenvolvedores
 
-## Socket (chat em tempo real)
+- Traduções estão em `translations.js` e usam atributos `data-i18n`.
+- O script de interação está em `script.js`.
+- Para alterar conteúdo estático, edite `index.html`.
 
-O projeto inclui um servidor WebSocket simples usando `ws` para demo do Chat. Inicie-o em uma janela separada:
+## Licença
 
-```powershell
-npm run socket
-```
+Todos os direitos reservados — entre em contato antes de reutilizar conteúdo ou ativos.
 
-O WebSocket roda em `ws://localhost:4000`. O componente de chat (wireframes) conecta-se automaticamente enquanto o servidor estiver em execução.
+
+
