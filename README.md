@@ -1,43 +1,60 @@
-# pixeldavi.io
 
-Portfólio profissional de Pixeldavi com foco em game development, pixel art, programação criativa e projetos digitais.
 
-## ✨ O que há no projeto
+# pixeldavi.io — Portfólio de Davit (Pixeldavi)
 
-- Landing page moderna e responsiva
-- Seção Sobre Mim com experiência e habilidades
-- Cards de projetos destacados
-- Formulário de contato
-- Suporte a português e inglês
-- Design escuro com identidade visual cyan/pink
+Olá — eu sou Davit (conhecido como Pixeldavi). Este repositório contém meu site de portfólio: uma landing page em design escuro com projetos de pixel art, jogos e programação criativa.
 
-## 📁 Estrutura
+## O que você encontra aqui
 
-```text
-portfolio/
-├── index.html         # Página principal
-├── styles.css         # Estilos do site
-├── script.js          # Interatividade e navegação
-├── translations.js    # Traduções PT/EN
-└── README.md          # Documentação do projeto
-```
+- Home com apresentação e identidade visual
+- Seção "Sobre mim" com resumo e habilidades
+- Lista de projetos com links e botões "Ver Projeto →" que levam ao contato
+- Formulário de contato para mensagens diretas
+- Suporte a português e inglês (i18n básico)
 
-## 🚀 Como abrir localmente
+## Tecnologias
 
-Abra o arquivo index.html no navegador ou rode um servidor simples:
+- HTML, CSS, JavaScript (vanilla)
+- Deploy: Vercel
 
-```bash
+## Rodar localmente
+
+1. Abra a pasta `portfolio`.
+2. Para visualização rápida, abra `index.html` no navegador; ou rode um servidor local:
+
+```powershell
 cd portfolio
 python -m http.server 8000
+# ou, se preferir Node: npx http-server -p 8000
 ```
 
-Depois acesse: http://localhost:8000
+Abra `http://localhost:8000`.
 
-## 📬 Contato
+## Produção
 
-E-mail: davitrevisol611@gmail.com
+Site publicado em: https://pixeldavi-portfolio.vercel.app
 
-## 🌐 Deploy
+Se quiser adicionar um domínio customizado, configure o alias no painel do Vercel.
 
-O site está publicado na Vercel.
+## Repositório
+
+O código fonte deste site está disponível em: https://github.com/D124R/pixeldavi.io
+
+
+## Contato & contratação
+
+- E-mail: davitrevisol611@gmail.com
+- Caso queira contratar ou colaborar, envie uma mensagem com o assunto e eu respondo rapidamente.
+
+## Notas para desenvolvedores
+
+- Traduções estão em `translations.js` e usam atributos `data-i18n`.
+- O script de interação está em `script.js`.
+- Para alterar conteúdo estático, edite `index.html`.
+
+## Licença
+
+Todos os direitos reservados — entre em contato antes de reutilizar conteúdo ou ativos.
+
+
 
