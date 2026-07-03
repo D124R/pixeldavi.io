@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pixeldavi.io</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header/Navigation -->
+    <header class="header">
+        <nav class="navbar">
+            <a href="#" class="logo">
+                <span class="logo-text">PIXELDAVI</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#about" data-i18n="nav.about">Sobre</a></li>
+                <li><a href="#skills" data-i18n="nav.skills">Skills</a></li>
+                <li><a href="#projects" data-i18n="nav.projects">Projetos</a></li>
+                <li><a href="#contact" data-i18n="nav.contact">Contato</a></li>
+            </ul>
+            <div class="language-selector">
+                <button class="lang-btn" data-lang="pt-BR" title="Português">PT</button>
+                <button class="lang-btn" data-lang="en-US" title="English">EN</button>
+            </div>
+            <button class="nav-toggle" onclick="toggleMenu()">☰</button>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 data-i18n="hero.title">CREATE PIXEL <span class="highlight">MAGIC</span></h1>
+                    <p data-i18n="hero.description">Game Developer, Pixel Artist & Software Engineer. Passionate about creating interactive experiences, indie games, and pixel art. Building the future one pixel at a time.</p>
+                    <div class="hero-buttons">
+                        <a href="#projects" class="btn btn-primary" data-i18n="hero.btn_projects">Ver Meus Trabalhos</a>
+                        <a href="#contact" class="btn btn-secondary" data-i18n="hero.btn_contact">Entrar em Contato</a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span class="code-dot red"></span>
+                            <span class="code-dot yellow"></span>
+                            <span class="code-dot green"></span>
+                        </div>
+                        <pre><code>&lt;developer&gt;
+  name: "Seu Nome"
+  passion: "Web Development"
+  ready: <span class="highlight">true</span>
+&lt;/developer&gt;</code></pre>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-skills-bar">
+                <div class="skill-badge" data-i18n="skills.godot">Godot Engine</div>
+                <div class="skill-badge" data-i18n="skills.pixelart">Pixel Art</div>
+                <div class="skill-badge" data-i18n="skills.gamedesign">Game Design</div>
+                <div class="skill-badge" data-i18n="skills.csharp">C#</div>
+                <div class="skill-badge" data-i18n="skills.python">Python</div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about">
+            <div class="section-content">
+                <h2 data-i18n="about.title">Sobre Mim</h2>
+                <div class="about-grid">
+                    <div class="about-text">
+                        <p data-i18n="about.description">Comecei minha jornada apaixonado por aprender game development e criar experiências interativas. Até lancei um pequeno indie game durante meus primeiros estudos, o que me motivou a continuar melhorando minhas habilidades em programação, design de games e pixel art.</p>
+                        <p data-i18n="about.specialty">Especializado em <strong>Game Development, Pixel Art & Programação Criativa</strong>, tenho experiência em:</p>
+                        <ul class="about-list">
+                            <li data-i18n="about.exp1">Game development com Godot e Unity</li>
+                            <li data-i18n="about.exp2">Criação e animação de pixel art</li>
+                            <li data-i18n="about.exp3">Web development full-stack</li>
+                            <li data-i18n="about.exp4">Projetos de negócios locais e colaborativos</li>
+                            <li data-i18n="about.exp5">Desenvolvimento e lançamento de indie games</li>
+                        </ul>
+                    </div>
+                    <div class="about-stats">
+                        <div class="stat-card">
+                            <div class="stat-number">10+</div>
+                            <div class="stat-label" data-i18n="about.stat1">Game Projects</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">1</div>
+                            <div class="stat-label" data-i18n="about.stat2">Released Indie Game</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-number">Artist</div>
+                            <div class="stat-label" data-i18n="about.stat3">Pixeldavi Art Founder</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="skills">
+            <h2 data-i18n="skills_section.title">Skills & Expertise</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3 data-i18n="skills.category1">Game Development</h3>
+                    <div class="skill-bars">
+                        <div class="skill-item">
+                            <span data-i18n="skills.skill1">Godot Engine</span>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span data-i18n="skills.skill2">Game Design & Mechanics</span>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span data-i18n="skills.skill3">C# / GDScript</span>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span data-i18n="skills.skill4">Physics & Collision</span>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 80%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3 data-i18n="skills.category2">Pixel Art</h3>
+                    <div class="skill-bars">
+                        <div class="skill-item">
+                            <span data-i18n="skills.skill5">Character Design</span>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span data-i18n="skills.skill6">Animation & Sprites</span>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 88%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span data-i18n="skills.skill7">Environment Design</span>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span data-i18n="skills.skill8">Aseprite & Pixel Tools</span>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 92%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3 data-i18n="skills.category3">Other Skills</h3>
+                    <div class="skill-bars">
+                        <div class="skill-item">
+                            <span data-i18n="skills.skill9">Web Development</span>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span data-i18n="skills.skill10">Git & Version Control</span>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span data-i18n="skills.skill11">Project Management</span>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span data-i18n="skills.skill12">Business Development</span>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 75%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="projects">
+            <h2 data-i18n="projects_section.title">Projetos em Destaque</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-placeholder" data-i18n="projects.proj1.placeholder">INDIE GAME</div>
+                    </div>
+                    <div class="project-info">
+                        <h3 data-i18n="projects.proj1.title">Released Indie Game</h3>
+                        <p data-i18n="projects.proj1.description">First released indie game project combining game development, pixel art, and creative design. Built with Godot Engine and featuring original artwork and mechanics.</p>
+                        <div class="project-tags">
+                            <span class="tag">Godot</span>
+                            <span class="tag">Pixel Art</span>
+                            <span class="tag">Game Design</span>
+                        </div>
+                        <a href="#contact" class="project-link" data-project="Interesse em Indie Game Lançado" data-i18n="projects.view_project">Ver Projeto →</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-placeholder" data-i18n="projects.proj2.placeholder">GAME PROJECT</div>
+                    </div>
+                    <div class="project-info">
+                        <h3 data-i18n="projects.proj2.title">Collaborative Game Development</h3>
+                        <p data-i18n="projects.proj2.description">Multi-player collaborative game project featuring custom game mechanics, multiplayer systems, and original pixel art assets. Worked with team on design and implementation.</p>
+                        <div class="project-tags">
+                            <span class="tag">Godot</span>
+                            <span class="tag">Multiplayer</span>
+                            <span class="tag">Collaboration</span>
+                        </div>
+                        <a href="#contact" class="project-link" data-project="Interesse em Game Development Colaborativo" data-i18n="projects.view_project">Ver Projeto →</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-placeholder" data-i18n="projects.proj3.placeholder">PIXEL ART</div>
+                    </div>
+                    <div class="project-info">
+                        <h3 data-i18n="projects.proj3.title">Pixeldavi Art Portfolio</h3>
+                        <p data-i18n="projects.proj3.description">Personal pixel art collection featuring character designs, animations, and environmental assets. Showcasing various styles, palettes, and creative approaches in pixel art.</p>
+                        <div class="project-tags">
+                            <span class="tag">Pixel Art</span>
+                            <span class="tag">Animation</span>
+                            <span class="tag">Design</span>
+                        </div>
+                        <a href="#contact" class="project-link" data-project="Interesse em Pixeldavi Art Portfolio" data-i18n="projects.view_project">Ver Projeto →</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <div class="project-placeholder" data-i18n="projects.proj4.placeholder">BUSINESS</div>
+                    </div>
+                    <div class="project-info">
+                        <h3 data-i18n="projects.proj4.title">Local Business Projects</h3>
+                        <p data-i18n="projects.proj4.description">Custom software solutions and development work for local businesses. Combining web development, game development expertise, and creative problem-solving.</p>
+                        <div class="project-tags">
+                            <span class="tag">Web Dev</span>
+                            <span class="tag">Business</span>
+                            <span class="tag">Custom Solutions</span>
+                        </div>
+                        <a href="#contact" class="project-link" data-project="Interesse em Projetos de Negócios Locais" data-i18n="projects.view_project">Ver Projeto →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact">
+            <h2 data-i18n="contact.title">Let's Create Together!</h2>
+            <p data-i18n="contact.subtitle">Always open to new game development opportunities, pixel art commissions, and creative collaborations. Let's bring ideas to life!</p>
+            
+            <div class="contact-content">
+                <div class="contact-form">
+                    <form onsubmit="handleSubmit(event)">
+                        <div class="form-group">
+                            <label for="name" data-i18n="contact.form.name">Nome</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" data-i18n="contact.form.email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject" data-i18n="contact.form.subject">Assunto</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message" data-i18n="contact.form.message">Mensagem</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" data-i18n="contact.btn_send">Send Message</button>
+                    </form>
+                </div>
+
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <h3>Email</h3>
+                        <p><a href="mailto:davitrevisol611@gmail.com">davitrevisol611@gmail.com</a></p>
+                    </div>
+                    <div class="contact-item">
+                        <h3>Social</h3>
+                        <div class="social-links">
+                            <a href="https://x.com/DaviT55261" class="social-link">Twitter</a>
+                            <a href="https://github.com/D124R" class="social-link">GitHub</a>
+                            <a href="https://davitrevisol.itch.io/" class="social-link">Itch.io</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p data-i18n="footer.text">&copy; 2024 Pixeldavi. Game Developer & Pixel Artist.</p>
+    </footer>
+
+    <script src="translations.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
