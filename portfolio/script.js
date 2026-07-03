@@ -69,6 +69,15 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         const href = this.getAttribute('href');
         if (href !== '#') {
             e.preventDefault();
+
+            const projectName = this.getAttribute('data-project');
+            if (projectName) {
+                const subjectInput = document.getElementById('subject');
+                if (subjectInput) {
+                    subjectInput.value = projectName;
+                }
+            }
+
             const target = document.querySelector(href);
             if (target) {
                 target.scrollIntoView({

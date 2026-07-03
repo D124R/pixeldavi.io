@@ -36,6 +36,11 @@ const translations = {
             title: "Skills & Expertise"
         },
         skills: {
+            godot: "Godot Engine",
+            pixelart: "Pixel Art",
+            gamedesign: "Game Design",
+            csharp: "C#",
+            python: "Python",
             category1: "Game Development",
             category2: "Pixel Art",
             category3: "Outras Habilidades",
@@ -132,6 +137,11 @@ const translations = {
             title: "Skills & Expertise"
         },
         skills: {
+            godot: "Godot Engine",
+            pixelart: "Pixel Art",
+            gamedesign: "Game Design",
+            csharp: "C#",
+            python: "Python",
             category1: "Game Development",
             category2: "Pixel Art",
             category3: "Other Skills",
